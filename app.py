@@ -14,7 +14,6 @@ if 'game_started' not in st.session_state:
 
 # 2. 문제 생성 알고리즘
 def generate_question(mode):
-    # 혼합 모드인 경우 연산자를 무작위로 선택
     current_op = mode
     if mode == "혼합":
         current_op = random.choice(["더하기", "빼기", "곱하기"])
@@ -38,7 +37,6 @@ def generate_question(mode):
     # 객관식 보기 생성
     options = {ans}
     while len(options) < 4:
-        # 정답 근처의 숫자로 오답 생성 (더욱 흥미진진하게!)
         wrong = ans + random.randint(-10, 10)
         if wrong >= 0 and wrong != ans:
             options.add(wrong)
@@ -138,13 +136,3 @@ else:
             if st.button("🏁 결과 확인하기", use_container_width=True):
                 st.session_state.game_over = True
                 st.rerun()
-
-### 🛠️ 업데이트 방법
-
-1. **GitHub 로그인** 후 이전에 만든 저장소의 `app.py`로 들어갑니다.
-2. **연필 모양(Edit)** 버튼을 누르고 기존 코드를 모두 삭제합니다.
-3. 위에서 드린 **새로운 코드를 복사해서 붙여넣기** 합니다.
-4. **'Commit changes'**를 눌러 저장합니다.
-5. 1분 뒤에 기존 스트림릿 웹 주소로 들어가면 **모드 선택 기능**이 생겨난 것을 볼 수 있습니다!
-
-네 가지 모드와 문제 수 조절 기능까지 갖춘 이 게임이 아이의 수학 실력 향상에 큰 도움이 되길 바랍니다. 궁금하신 점이 있다면 언제든 말씀해 주세요!
